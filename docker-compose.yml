@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:7
+    restart: always
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+  app:
+    build: .
+    container_name: backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/unahur
+      - PORT=3000
+      - COMMENT_MONTHS=6
+    volumes:
+      - ./src/uploads:/app/src/uploads
+    depends_on:
+      - mongo
+volumes:
+  mongo-data:

@@ -1,0 +1,487 @@
+/* styles.css - Estilo moderno para red social */
+
+:root {
+  --primary: #4f8cff;
+  --primary-dark: #2c5ec7;
+  --accent: #ffb347;
+  --bg: #f4f7fa;
+  --card-bg: #fff;
+  --border: #e0e6ed;
+  --text: #222;
+  --text-light: #666;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --color-bg: #f7faff;
+  --color-card: #fff;
+  --color-text: #222;
+  --color-primary: #1976d2;
+  --color-border: #e0e0e0;
+  --color-btn: #1976d2;
+  --color-btn-hover: #125ea2;
+  --color-btn-danger: #e53935;
+  --color-btn-danger-hover: #b71c1c;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  margin: 0.5em 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: linear-gradient(135deg, #f4f7fa 0%, #eaf1fb 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(79,140,255,0.10), 0 1.5px 8px 0 rgba(44,94,199,0.07);
+  border: 1.5px solid var(--border);
+  margin-bottom: 2.2rem;
+  padding: 1.7rem 2.2rem 1.2rem 2.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s, border 0.2s;
+  background: var(--color-card);
+  border: 1.5px solid var(--color-border);
+  box-shadow: 0 2px 8px #1976d222;
+}
+.card:hover {
+  box-shadow: 0 4px 24px var(--color-primary);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: -40px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 80%);
+  opacity: 0.08;
+  z-index: 0;
+}
+
+.post-header, .post-tags, .post-image, .post-actions {
+  position: relative;
+  z-index: 1;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+.post-author {
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 1.1em;
+  letter-spacing: 0.01em;
+}
+.post-tags {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+.tag {
+  background: linear-gradient(90deg, var(--primary) 60%, var(--accent) 100%);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.22em 1.1em;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 1px 4px rgba(79,140,255,0.10);
+  border: none;
+  transition: background 0.18s;
+}
+.tag:hover {
+  background: linear-gradient(90deg, var(--accent) 60%, var(--primary) 100%);
+  color: var(--primary-dark);
+}
+
+.post-image {
+  max-width: 100%;
+  border-radius: 14px;
+  margin: 1.1em 0 0.7em 0;
+  box-shadow: 0 2px 12px rgba(44,94,199,0.10);
+  border: 1.5px solid #e0e6ed;
+}
+
+.post-actions, .comment-actions {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+button, .btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 1px 4px rgba(79,140,255,0.08);
+}
+button:hover, .btn:hover {
+  background: var(--primary-dark);
+}
+button.delete, .btn.delete {
+  background: #ff5c5c;
+}
+button.delete:hover, .btn.delete:hover {
+  background: #d32f2f;
+}
+.btnComentar, .btnEliminarPost, .btnEditarPost, .btnEliminarComentario, .btnEditarComentario {
+  background: var(--color-btn);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  margin: 2px 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px #1976d233;
+  outline: none;
+}
+button:hover, .btnComentar:hover, .btnEditarPost:hover, .btnEditarComentario:hover {
+  background: var(--color-btn-hover);
+  transform: scale(1.07);
+}
+.btnEliminarPost, .btnEliminarComentario {
+  background: var(--color-btn-danger);
+}
+.btnEliminarPost:hover, .btnEliminarComentario:hover {
+  background: var(--color-btn-danger-hover);
+}
+
+form {
+  margin: 1.2em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+input[type="text"], input[type="file"], textarea, select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6em 1em;
+  font-size: 1em;
+  background: #f9fbfd;
+  color: var(--text);
+  transition: border 0.15s;
+}
+input[type="text"]:focus, textarea:focus, select:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.comment-list {
+  margin-top: 1.2em;
+  padding-left: 0;
+  list-style: none;
+}
+.comment {
+  background: #f7faff;
+  border-radius: 8px;
+  padding: 0.7em 1em;
+  margin-bottom: 0.7em;
+  border: 1px solid #e3eaf2;
+  box-shadow: 0 1px 4px rgba(79,140,255,0.04);
+}
+.comment-author {
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-right: 0.5em;
+}
+.comment-text {
+  color: var(--text-light);
+}
+
+/* Mensajes de error y éxito */
+.error-message {
+  color: #d32f2f;
+  background: #ffeaea;
+  border: 1px solid #ffb3b3;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  font-weight: 500;
+}
+.success-message {
+  color: #388e3c;
+  background: #eaffea;
+  border: 1px solid #b3ffb3;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  font-weight: 500;
+}
+
+/* Estilos adicionales */
+.button-row-separate {
+  display: flex;
+  gap: 1.2rem;
+  margin: 1.5rem 0 2.5rem 0;
+  justify-content: flex-start;
+}
+
+/* Efecto de foco y animación para formularios activos */
+#formPostContainer[style*="display: block"],
+#formUsuario[style*="display: block"] {
+  animation: fadeInForm 0.4s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 4px 32px 0 rgba(79,140,255,0.13);
+  border-radius: 16px;
+  background: #fff;
+  border: 1.5px solid var(--primary);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+@keyframes fadeInForm {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación de fade-in para cards y avatares */
+.card, .avatar {
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Botón de modo oscuro */
+#toggleDarkMode {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1000;
+  background: var(--color-btn);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5em;
+  box-shadow: 0 2px 8px #1976d233;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+#toggleDarkMode:hover {
+  background: var(--color-btn-hover);
+  transform: scale(1.12);
+}
+
+/* Mejora visual de inputs activos */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px #ffb34733;
+}
+
+/* --- Mejoras visuales sugeridas por Copilot --- */
+.avatar {
+  transition: box-shadow 0.2s, transform 0.2s, border 0.3s;
+  border: 2.5px solid var(--color-primary);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  padding: 2px;
+}
+.avatar:hover {
+  box-shadow: 0 0 12px var(--color-primary);
+  transform: scale(1.09);
+  border: 2.5px solid #fff;
+}
+.card {
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 2px 16px #1976d2aa;
+}
+@media (max-width: 600px) {
+  .avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .card {
+    padding: 6px !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 0 0.3rem;
+  }
+  .card {
+    padding: 0.8rem 0.5rem;
+  }
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+}
+
+/* --- MODO OSCURO --- */
+body.dark-mode {
+  background: #181c22 !important;
+  color: #e0e6ed !important;
+}
+body.dark-mode header {
+  background: #232a36 !important;
+  color: #fff !important;
+}
+body.dark-mode .container {
+  background: none !important;
+}
+body.dark-mode .card {
+  background: linear-gradient(135deg, #232a36 0%, #181c22 100%) !important;
+  color: #e0e6ed !important;
+  border: 1.5px solid #2c3442 !important;
+  box-shadow: 0 2px 12px #0008 !important;
+}
+body.dark-mode .card:hover {
+  box-shadow: 0 4px 24px #1976d2cc !important;
+}
+body.dark-mode .post-header, body.dark-mode .post-tags, body.dark-mode .post-content, body.dark-mode .post-actions {
+  color: #e0e6ed !important;
+}
+body.dark-mode .post-author {
+  color: #90caf9 !important;
+}
+body.dark-mode .post-tags .tag {
+  background: linear-gradient(90deg, #1976d2 60%, #ffb347 100%) !important;
+  color: #fff !important;
+}
+body.dark-mode .tag:hover {
+  background: linear-gradient(90deg, #ffb347 60%, #1976d2 100%) !important;
+  color: #232a36 !important;
+}
+body.dark-mode .post-image {
+  border: 1.5px solid #2c3442 !important;
+  box-shadow: 0 2px 12px #0006 !important;
+}
+body.dark-mode .comment {
+  background: #232a36 !important;
+  color: #e0e6ed !important;
+  border: 1px solid #2c3442 !important;
+}
+body.dark-mode .comment-author {
+  color: #90caf9 !important;
+}
+body.dark-mode .comment-text {
+  color: #b0b8c1 !important;
+}
+body.dark-mode input, body.dark-mode textarea, body.dark-mode select {
+  background: #232a36 !important;
+  color: #e0e6ed !important;
+  border: 1px solid #2c3442 !important;
+}
+body.dark-mode input:focus, body.dark-mode textarea:focus, body.dark-mode select:focus {
+  border-color: #90caf9 !important;
+  box-shadow: 0 0 0 2px #1976d233 !important;
+}
+body.dark-mode .avatar {
+  border: 2.5px solid #90caf9 !important;
+  background: linear-gradient(45deg, #232a36 0%, #181c22 100%) !important;
+}
+body.dark-mode .avatar:hover {
+  border: 2.5px solid #fff !important;
+}
+body.dark-mode #toggleDarkMode {
+  background: #232a36 !important;
+  color: #fff !important;
+}
+body.dark-mode #toggleDarkMode:hover {
+  background: #1976d2 !important;
+}
+body.dark-mode .error-message {
+  background: #2c3442 !important;
+  color: #ffb3b3 !important;
+  border: 1px solid #d32f2f !important;
+}
+body.dark-mode .success-message {
+  background: #1b2a1b !important;
+  color: #b3ffb3 !important;
+  border: 1px solid #388e3c !important;
+}
+body.dark-mode .btn, body.dark-mode button {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+body.dark-mode .btn:hover, body.dark-mode button:hover {
+  background: #125ea2 !important;
+}
+body.dark-mode .btnEliminarPost, body.dark-mode .btnEliminarComentario {
+  background: #e53935 !important;
+}
+body.dark-mode .btnEliminarPost:hover, body.dark-mode .btnEliminarComentario:hover {
+  background: #b71c1c !important;
+}
+
+/* --- MODO OSCURO: estilos para lista de usuarios y formularios --- */
+body.dark-mode #usuariosList {
+  background: #232a36 !important;
+  border: 2px solid #2c3442 !important;
+  color: #e0e6ed !important;
+}
+body.dark-mode #usuariosList ul li {
+  border-bottom: 1px solid #2c3442 !important;
+}
+body.dark-mode #usuariosList strong {
+  color: #90caf9 !important;
+}
+body.dark-mode #usuariosList span {
+  color: #b0b8c1 !important;
+}
+body.dark-mode #usuariosList .avatar {
+  border: 2.5px solid #90caf9 !important;
+}
+body.dark-mode #usuariosList .usuarioItem:hover {
+  background: #232a36 !important;
+}
+
+body.dark-mode #formUsuario,
+body.dark-mode #formPostContainer {
+  background: #232a36 !important;
+  border: 1.5px solid #2c3442 !important;
+  color: #e0e6ed !important;
+}
+body.dark-mode #formUsuario label,
+body.dark-mode #formPostContainer label {
+  color: #90caf9 !important;
+}
+body.dark-mode #formUsuario input,
+body.dark-mode #formUsuario textarea,
+body.dark-mode #formUsuario select,
+body.dark-mode #formPostContainer input,
+body.dark-mode #formPostContainer textarea,
+body.dark-mode #formPostContainer select {
+  background: #232a36 !important;
+  color: #e0e6ed !important;
+  border: 1px solid #2c3442 !important;
+}

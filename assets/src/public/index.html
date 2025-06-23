@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>UnaHur Anti-Social Net</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>UnaHur Anti-Social Net</h1>
+
+  <button id="btnVerPosts">Ver publicaciones</button>
+  <button id="btnCrearPost">Crear publicación</button>
+  <button id="btnCrearUsuario">Crear Usuario</button>
+
+  <div id="formPostContainer" style="display: none; margin-top: 1rem;">
+    <form id="formPost" enctype="multipart/form-data">
+      <textarea id="postContent" name="postContent" placeholder="Escribí tu publicación..." required></textarea><br>
+      <input type="file" id="postImage" name="image" accept="image/*"><br>
+      <select id="userIdPost" name="userId"></select>
+      <label for="tagsSelect">Tags:</label>
+      <div id="tagsCheckboxes" style="margin-bottom:8px;"></div>
+      <label for="nuevoTagInput">Nuevo tag:</label>
+      <input type="text" id="nuevoTagInput" placeholder="Escribe un tag y presiona Enter">
+      <button type="submit">Publicar</button>
+    </form>
+  </div>
+  <div id="outputPost"></div>
+
+  <div id="formUsuario" style="display: none; margin-top: 10px;">
+    <form id="usuarioForm">
+      <label for="nickName">NickName:</label>
+      <input type="text" id="nickName" name="nickName" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="account_device_token">Device Token:</label>
+      <input type="text" id="account_device_token" name="account_device_token" required><br><br>
+
+      <label for="fotoUsuarioInput" id="labelFotoUsuarioInput">Imagen de perfil (opcional):</label>
+      <input type="file" id="fotoUsuarioInput" name="foto" accept="image/*"><br>
+      <img id="previewFotoUsuario" style="display:none;max-width:100px;max-height:100px;margin-top:8px;" />
+
+      <input type="hidden" id="userId" name="userId" value="1">
+      
+      <button type="submit">Guardar Usuario</button>
+    </form>
+  </div>
+  <div id="mensaje"></div>
+
+  <label for="verPostsUsuarioSelect">Filtrar por usuario:</label>
+  <select id="verPostsUsuarioSelect"><option value="">Todos</option></select>
+
+  <label>Filtrar por tags:</label>
+  <div id="tagsFiltroContainer" style="margin:10px 0;"></div>
+
+  <div id="output"></div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
+

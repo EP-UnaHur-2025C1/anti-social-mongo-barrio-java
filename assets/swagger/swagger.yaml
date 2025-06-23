@@ -1,0 +1,259 @@
+openapi: 3.0.0
+info:
+  title: UnaHur Anti-Social Net API
+  version: 1.0.0
+  description: API para la red social UnaHur Anti-Social Net
+servers:
+  - url: http://localhost:3005
+paths:
+  /api/health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: API is running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+  /api/users:
+    get:
+      summary: Obtener todos los usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+    post:
+      summary: Crear usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickName:
+                  type: string
+      responses:
+        '201':
+          description: Usuario creado
+  /api/users/{id}:
+    get:
+      summary: Obtener usuario por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario encontrado
+    put:
+      summary: Actualizar usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickName:
+                  type: string
+      responses:
+        '200':
+          description: Usuario actualizado
+    delete:
+      summary: Eliminar usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Usuario eliminado
+  /api/users/{id}/follow/{targetId}:
+    post:
+      summary: Seguir usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: targetId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario seguido
+  /api/users/{id}/unfollow/{targetId}:
+    post:
+      summary: Dejar de seguir usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: targetId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario dejado de seguir
+  /api/contacts:
+    get:
+      summary: Obtener todos los contactos
+      responses:
+        '200':
+          description: Lista de contactos
+    post:
+      summary: Crear contacto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                phone:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '201':
+          description: Contacto creado
+  /api/contacts/{id}:
+    get:
+      summary: Obtener contacto por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Contacto encontrado
+    put:
+      summary: Actualizar contacto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Contacto actualizado
+    delete:
+      summary: Eliminar contacto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Contacto eliminado
+  /api/accesses:
+    get:
+      summary: Obtener todos los accesos
+      responses:
+        '200':
+          description: Lista de accesos
+    post:
+      summary: Crear acceso
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                level:
+                  type: integer
+                group:
+                  type: string
+      responses:
+        '201':
+          description: Acceso creado
+  /api/accesses/{id}:
+    get:
+      summary: Obtener acceso por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Acceso encontrado
+    put:
+      summary: Actualizar acceso
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: integer
+                group:
+                  type: string
+      responses:
+        '200':
+          description: Acceso actualizado
+    delete:
+      summary: Eliminar acceso
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Acceso eliminado
+# ...continúa con posts, comments, tags, etc.
